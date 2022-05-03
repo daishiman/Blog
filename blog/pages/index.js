@@ -5,5 +5,9 @@ import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
-	return <Layout></Layout>;
+	return (
+    <Layout>
+      <a href="">Next.js です</a>
+    </Layout>
+  );
 }
