@@ -29,7 +29,7 @@ export function getPostsData() {
 
 // getStaticPath の return で使う path を取得する
 export function getAllPostIds() {
-  return fileNames.map((fileNames) => {
+  return fileNames.map((fileName) => {
     return {
       params: {
         id: fileName.replace(/\.md$/, ''),
