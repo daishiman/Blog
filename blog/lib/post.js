@@ -3,10 +3,10 @@ import fs from 'fs';
 import matter from 'gray-matter';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
+const fileNames = fs.readdirSync(postsDirectory);
 
 // mdファイルのデータを取り出す
 export function getPostsData() {
-  const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
     // ファイル名の拡張子を取り除いたものをidとする
     const id = fileName.replace(/\.md$/, '');
@@ -25,4 +25,15 @@ export function getPostsData() {
   });
 
   return allPostsData;
+}
+
+// getStaticPath の return で使う path を取得する
+export function getAllPostIds() {
+  return fileNames.map((fileNames) => {
+    return {
+      params: {
+        id: fileName.replace(/\.md$/, ''),
+      },
+    };
+  });
 }
